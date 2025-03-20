@@ -18,19 +18,19 @@
             <!-- expense name  -->
             <div>
               <label for="expense-name">Expense Name</label>
-              <input type="text" id="expense-name" />
+              <input type="text" name="name" id="expense-name" />
             </div>
 
             <!-- expense amount  -->
             <div>
               <label for="expense-amount">Amount</label>
-              <input type="number" id="expense-amount" />
+              <input type="number" name="amount" id="expense-amount" />
             </div>
 
             <!-- expense date  -->
             <div>
               <label for="expense-date">Date</label>
-              <input type="date" id="expense-date" />
+              <input type="date" name="date" id="expense-date" />
             </div>
 
             <!-- add expense button  -->
@@ -42,9 +42,9 @@
         </section>
 
         <!-- expenses list  -->
-        <section id="expense-list">
+        <section id="expense-list-section">
           <h2>Expenses</h2>
-          <ul>
+          <ul id="expense-list">
             <li>
               <span>Name-amount-date</span>
               <button class="delete-btn">x</button>
@@ -56,5 +56,7 @@
     <footer>
       <p>@2024 The Programers University</p>
     </footer>
+
+    <script src="./js/script.js"></script>
   </body>
 </html>
