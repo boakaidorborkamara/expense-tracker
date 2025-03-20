@@ -1,0 +1,85 @@
+:root {
+  --primary-color: #131010;
+  --secondary-color: rgb(215, 213, 213);
+  --accent-color: #f0bb78;
+  --warning-color: red;
+}
+
+/* ||GENERAL  */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--secondary-color);
+}
+
+section {
+  width: 100%;
+}
+
+label {
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid gray;
+  padding: 10px;
+}
+
+/* ||HEADER  */
+header {
+  background: var(--primary-color);
+  text-align: center;
+  color: white;
+  padding: 2em;
+}
+
+/* ||MAIN  */
+main {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  /* align-items: center; */
+}
+
+main #container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  background: white;
+  padding: 60px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 8px gray;
+  margin-bottom: 15px;
+}
+
+/* ||EXPENSE FORM  */
+#expense-form {
+  width: 100%;
+}
+
+/* ||EXPENSE LIST  */
+#expense-list .delete-btn {
+  background: red;
+  padding: 5px 10px 5px 10px;
+  border: none;
+}
+
+/* ||FOOTER  */
+footer {
+  text-align: center;
+}
