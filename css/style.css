@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap");
+
 :root {
   --primary-color: #131010;
   --secondary-color: rgb(215, 213, 213);
@@ -13,6 +15,10 @@
 
 body {
   background: var(--secondary-color);
+  font-family: "Public Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
 }
 
 section {
@@ -21,12 +27,23 @@ section {
 
 label {
   display: block;
+  margin-bottom: 5px;
 }
 
 input {
-  width: 100%;
+  width: 96%;
   padding: 10px;
   margin-bottom: 30px;
+}
+
+input[type="submit"] {
+  background: var(--primary-color);
+  color: white;
+  width: 100%;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
 }
 
 li {
@@ -37,6 +54,10 @@ li {
   border: 1px solid gray;
   padding: 10px;
   margin: 10px 0px 10px 0px;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 /* ||HEADER  */
