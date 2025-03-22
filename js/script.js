@@ -1,6 +1,5 @@
 const expense_form = document.getElementById("expense-form");
 const expense_list = document.getElementById("expense-list");
-console.log(expense_form);
 
 const expense_tracker = createExpenseTracker();
 
@@ -9,6 +8,7 @@ window.addEventListener("load", () => {
   expense_tracker.displayExpenses();
 });
 
+// add expense when form is submited
 expense_form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -19,10 +19,20 @@ expense_form.addEventListener("submit", (e) => {
   expense_tracker.addExpense(user_expense);
 });
 
+// delete expense when a delete button is clicked
+document.addEventListener("click", (e) => {
+  let clicked_ele = e.target;
+
+  if (clicked_ele.classList.contains("delete-btn")) {
+    let expense_id = clicked_ele.id;
+    expense_tracker.deleteExpense(expense_id);
+  }
+});
+
 function createExpenseTracker() {
   let expenses = [];
 
-  //   get user expense from expense form
+  //get user expense from expense form
   function getUserExpense(html_form) {
     let user_expense = {};
 
@@ -61,7 +71,7 @@ function createExpenseTracker() {
     return true;
   }
 
-  //   add new expense to database
+  //add new expense to database
   function addExpense(new_expense) {
     let isValid = validateExpense(new_expense);
 
@@ -78,7 +88,7 @@ function createExpenseTracker() {
     }
   }
 
-  //   display all existing expenses
+  //display all existing expenses
   function displayExpenses() {
     reloadSreen();
 
@@ -95,16 +105,21 @@ function createExpenseTracker() {
           "beforeend",
           `<li>
               <span><strong>${formated_ele.name}</strong> - ${formated_ele.amount} - ${formated_ele.date}</span>
-              <button class="delete-btn">x</button>
+              <button class="delete-btn" id=${formated_ele.id}>x</button>
             </li>`
         );
       });
     }
   }
 
-  //   delete an existing expense
+  //delete an existing expense
   function deleteExpense(id) {
-    console.log("deleting expense");
+    let new_items = expenses.filter((ele) => ele.id !== parseInt(id));
+
+    expenses = new_items;
+
+    reloadSreen();
+    displayExpenses();
   }
 
   // rerender the DOM
@@ -137,14 +152,11 @@ function createExpenseTracker() {
     return expense;
   }
 
-  return { getUserExpense, validateExpense, addExpense, displayExpenses };
-}
-
-class Expense {
-  constructor(name, amount, date, id) {
-    this.id = id;
-    this.name = name;
-    this.amount = amount;
-    this.date = date;
-  }
+  return {
+    getUserExpense,
+    validateExpense,
+    addExpense,
+    deleteExpense,
+    displayExpenses,
+  };
 }
