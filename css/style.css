@@ -105,3 +105,11 @@ main #container {
 footer {
   text-align: center;
 }
+
+/* ||MEDIA QUERY */
+@media (max-width: 426px) {
+  main #container {
+    width: 85vw;
+    padding: 60px 20px;
+  }
+}
